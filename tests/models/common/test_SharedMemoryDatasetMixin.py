@@ -5,6 +5,7 @@ import inspect
 import re
 from collections.abc import Callable
 
+import numpy as np
 import pytest
 import torch
 from lightning import seed_everything
@@ -156,7 +157,11 @@ class TestSharedMemoryDatasetMixin:
         assert torch.allclose(classic_features, features_batch)
 
     @pytest.mark.parametrize("preprocessing", ["raw16", "L1"])
-    def test_features_dtype(self, preprocessing: str, capfd: pytest.CaptureFixture) -> None:
+    def test_features_dtype(
+        self, preprocessing: str, monkeypatch: pytest.MonkeyPatch, caplog: pytest.LogCaptureFixture
+    ) -> None:
+        monkeypatch.setattr(settings.log_once, "filters", [])
+
         paths = [DataPath.from_image_name("P043#2019_12_20_12_38_35")]
         config = Config({
             "input/n_channels": 100,
@@ -175,14 +180,16 @@ class TestSharedMemoryDatasetMixin:
 
         # Check that a warning is emitted if we do something wrong
         config["input/features_dtype"] = "float32"
-        dataloader = DatasetImageBatch.batched_iteration(paths, config)
-        sample = next(iter(dataloader))
 
-        # We need to use capfd here because the warning is emitted in a subprocess
+        # We load it manually so that we can capture the log (DatasetImageBatch operates in a subprocess)
+        loaded_data = np.empty(sample["features"].shape[1:], dtype=np.float32)
+        pointer, read_only_flag = loaded_data.__array_interface__["data"]
+
+        dataset = DatasetImage(paths, train=False, config=config)
+        dataset._load_preprocessed(paths[0], folder_name=preprocessing, start_pointer=pointer)
+
         assert (
-            re.search(
-                r"WARNING.*The dtype of the loaded data.*\(float16\) does not match", capfd.readouterr().out, re.DOTALL
-            )
+            re.search(r"WARNING.*The dtype of the loaded data.*\(float16\) does not match", caplog.text, re.DOTALL)
             is not None
         )
 

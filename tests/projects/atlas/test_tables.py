@@ -1,8 +1,6 @@
 # SPDX-FileCopyrightText: 2022 Division of Intelligent Medical Systems, DKFZ
 # SPDX-License-Identifier: MIT
 
-import numpy as np
-
 from htc.tivita.DataPath import DataPath
 from htc.utils.paths import all_masks_paths
 from htc_projects.atlas.settings_atlas import settings_atlas
@@ -12,7 +10,7 @@ from htc_projects.atlas.tables import median_cam_table, standardized_recordings
 def test_median_cam_table() -> None:
     df = median_cam_table()
 
-    assert np.all(df["camera_name"].unique() == settings_atlas.valid_cameras), "Invalid yellow filters"
+    assert (df["camera_name"].unique() == settings_atlas.valid_cameras).all(), "Invalid yellow filters"
     assert df["image_name"].nunique() == settings_atlas.n_images
     assert df["subject_name"].nunique() == settings_atlas.n_subjects
 

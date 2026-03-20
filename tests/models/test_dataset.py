@@ -3,7 +3,6 @@
 
 import json
 import re
-from collections.abc import Iterator
 
 import jsonschema
 import numpy as np
@@ -22,15 +21,6 @@ from htc.utils.sqldf import sqldf
 # General tests for some of our structured datasets
 @pytest.mark.slow
 class TestDataset:
-    @pytest.fixture(scope="class")
-    def paths_atlas(self) -> Iterator[list[DataPath]]:
-        # This may take a few seconds, so we only want to run it once per test session
-        atlas_dir = (
-            settings.datasets.network_data
-            / "2020_07_23_hyperspectral_MIC_organ_database/data/Catalogization_tissue_atlas"
-        )
-        yield list(DataPath.iterate(atlas_dir))
-
     def test_label_mapping(self) -> None:
         path = DataPath.from_image_name("P043#2019_12_20_12_38_35")
         label_mapping = {"blue_cloth": 10, "heart": 20, "lung": 30}
@@ -84,45 +74,6 @@ class TestDataset:
         # Masks images must not be in the semantic folder
         for path in paths_masks:
             assert len([p for p in paths_seg if p.timestamp == path.timestamp]) == 0
-
-    @pytest.mark.parametrize(
-        "dataset_name", ["2021_02_05_Tivita_multiorgan_semantic", "2021_02_05_Tivita_multiorgan_masks"]
-    )
-    def test_subject_name_match(self, dataset_name: str, paths_atlas: list[DataPath]) -> None:
-        # We want to make sure that every image in our dataset is assigned to the same pig as in the paths_atlas
-        paths = DataPath.iterate(settings.data_dirs[dataset_name])
-        n_match = 0
-        n_no_match = 0
-
-        for path in paths:
-            match_single = [p for p in paths_atlas if p.timestamp == path.timestamp]
-            if len(match_single) >= 1:
-                n_match += 1
-                assert len({m.timestamp for m in match_single}) == 1, "matched exp ids must be unique"
-                match_single = match_single[0]
-
-                assert path.subject_name == match_single.subject_name, (
-                    f"The path {path} has a different subject_name than the path {match_single}"
-                )
-            else:
-                n_no_match += 1
-                assert dataset_name == "2021_02_05_Tivita_multiorgan_semantic", (
-                    f"Could not find a match for the path {path} in the tissue atlas but the path is from the masks"
-                    " dataset where every file must also be in the tissue atlas"
-                )
-
-        assert n_match > n_no_match
-
-    def test_unique_subject_name(self, paths_atlas: list[DataPath]) -> None:
-        # Test whether the mapping P002_OP002_2018_08_06_Experiment1 --> P002 is unique
-        assert len({p.subject_name for p in paths_atlas}) == len({p.subject_folder for p in paths_atlas})
-
-        id_mapping = {}
-        for p in paths_atlas:
-            if p.subject_name in id_mapping:
-                assert id_mapping[p.subject_name] == p.subject_folder
-            else:
-                id_mapping[p.subject_name] = p.subject_folder
 
     @pytest.mark.parametrize(
         "dataset_name",

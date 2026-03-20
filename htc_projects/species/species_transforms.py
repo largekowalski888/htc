@@ -18,19 +18,19 @@ from htc.utils.LabelMapping import LabelMapping
 class ProjectionTransform(HTCTransformation):
     known_projection_matrices = MappingProxyType({
         "weights+bias_ICG_pig_subjects=P062,P072,P076,P113": {
-            "sha256": "e39d2ce939e9fa1d277fc7dcc5ff080b48d79182d274f5edae6c6ee2e6491783",
+            "sha256": "712e8bea6187c08552045e9f624e101ccaba12b0bb7a03e7150179c171877316",
             "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/projection_matrices/weights+bias_ICG_pig_subjects=P062,P072,P076,P113.blosc",
         },
         "weights+bias_ICG_rat_subjects=R043,R048": {
-            "sha256": "7a76aa499e5f97a2e4dc56c15075dfbafd24a17e8c31b28861727b70b3a5d2f4",
+            "sha256": "a2a89258b8d06fb37fce686f9c4e9040cd07df7322a1f0a48661d1106530eb64",
             "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/projection_matrices/weights+bias_ICG_rat_subjects=R043,R048.blosc",
         },
         "weights+bias_malperfusion_pig_kidney=P091,P095,P097,P098+aortic": {
-            "sha256": "f14ec6b2b39bbe98005246a8e31c708938ed7cab9829723199da23754c6ec98e",
+            "sha256": "7e58bac64cb2ae1be16f3b38c9afe8219bce142a3df4a0344fc25e0406c5085d",
             "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/projection_matrices/weights+bias_malperfusion_pig_kidney=P091,P095,P097,P098+aortic.blosc",
         },
         "weights+bias_malperfusion_rat_subjects=R017,R019,R025,R029": {
-            "sha256": "8bf548a0eb074ff7d2fcd1abc70f44f3cfcd289da0c215bef855c4bc5959448e",
+            "sha256": "c0fcdddc75b3f74dd4c8fb2abbbfc008756eac4ed0ee9ecc5d57d51215348483",
             "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/projection_matrices/weights+bias_malperfusion_rat_subjects=R017,R019,R025,R029.blosc",
         },
     })

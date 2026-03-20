@@ -62,7 +62,7 @@ def challengeR_table_runs(runs: list[Path]) -> pd.DataFrame:
     return df.sort_values(by=["model_id", "subject_name", "metric"], ignore_index=True)
 
 
-def run_challengeR_lr(row: list[dict[str, str]], df_all: pd.DataFrame) -> Path:
+def run_challengeR_lr(row: list[dict[str, str]], df_all: pd.DataFrame, target_dir: Path) -> Path:
     with ChallengeR() as c:
         model_name = row["model_name"]
         model_type = row["model_type"]
@@ -90,7 +90,7 @@ def run_challengeR_lr(row: list[dict[str, str]], df_all: pd.DataFrame) -> Path:
         return df_values["run_dir"].unique().item()
 
 
-def run_challengeR_final(df: pd.DataFrame, name: str) -> None:
+def run_challengeR_final(df: pd.DataFrame, name: str, target_dir: Path) -> None:
     with ChallengeR() as c:
         c.add_data_matrix(df)
         c.create_challenge(
@@ -109,7 +109,7 @@ def run_challengeR_final(df: pd.DataFrame, name: str) -> None:
 
 
 @requires_extra(_missing_library)
-def main() -> None:
+def main(target_dir: Path) -> None:
     runs_comparison = []
     for i, row_runs in collect_comparison_runs(settings_seg.model_comparison_timestamp).iterrows():
         for model_type in ["rgb", "param", "hsi"]:
@@ -135,18 +135,20 @@ def main() -> None:
     assert len(df_models) == settings_seg.n_algorithms
 
     # Make a ranking per model to find the best lr
-    runs_best = p_map(partial(run_challengeR_lr, df_all=df_all), df_models.to_dict(orient="records"))
+    runs_best = p_map(
+        partial(run_challengeR_lr, df_all=df_all, target_dir=target_dir), df_models.to_dict(orient="records")
+    )
 
     df_best = challengeR_table_runs(runs_best)  # Ranking based on the best lr
     df_best.to_pickle(target_dir / "runs_best.pkl.xz")
     df_fixed = challengeR_table_runs(runs_comparison)  # Ranking all with the same lr (= ranking of the paper)
     df_fixed.to_pickle(target_dir / "runs_fixed.pkl.xz")
 
-    p_map(run_challengeR_final, [df_best, df_fixed], ["best", "fixed"])
+    p_map(partial(run_challengeR_final, target_dir=target_dir), [df_best, df_fixed], ["best", "fixed"])
 
 
 if __name__ == "__main__":
     target_dir = settings_seg.results_dir / "challengeR/lrs"
     target_dir.mkdir(exist_ok=True, parents=True)
 
-    main()
+    main(target_dir)

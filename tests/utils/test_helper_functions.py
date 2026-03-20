@@ -290,7 +290,7 @@ class TestMedianTable:
     def test_semantic(self) -> None:
         df = median_table(image_names=["P062#2020_05_15_22_02_05"], label_mapping=settings_seg.label_mapping)
         assert_frame_equal(df, sort_labels(df))
-        assert df["annotation_name"].unique().item() == "semantic#primary"
+        assert df["annotation_name"].unique().to_numpy().item() == "semantic#primary"
         assert settings_seg.label_mapping.is_index_valid(df["label_index_mapped"]).all()
         assert sorted(df["label_name_mapped"].tolist()) == sorted([
             "fat_subcutaneous",
@@ -322,7 +322,7 @@ class TestMedianTable:
         df2 = median_table(
             dataset_name="2021_02_05_Tivita_multiorgan_semantic", label_mapping=settings_seg.label_mapping
         )
-        assert df2["annotation_name"].unique().item() == "semantic#primary"
+        assert df2["annotation_name"].unique().to_numpy().item() == "semantic#primary"
         assert_frame_equal(
             df2.query("image_name == 'P062#2020_05_15_22_02_05'").reset_index(drop=True),
             df,

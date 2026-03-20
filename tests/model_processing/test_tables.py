@@ -107,7 +107,9 @@ class TestTables:
         df_unchanged_new = df_val_new.query("not (epoch_index == best_epoch_index and dataset_index == 0)")[
             common_columns
         ]
-        assert_frame_equal(df_unchanged_old, df_unchanged_new, check_exact=True)
+
+        # Pandas dtypes changed over time so they won't match with the old results exactly
+        assert_frame_equal(df_unchanged_old, df_unchanged_new, check_exact=True, check_column_type=False)
 
         # We manually change the value of one cell and re-run the script again, the changed value should get overwritten
         first_index_value = df_val_new.query("epoch_index == best_epoch_index and dataset_index == 0").index.values[0]

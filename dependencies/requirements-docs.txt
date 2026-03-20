@@ -1,4 +1,5 @@
-mkdocs
+# We should probably switch to Zensical: https://squidfunk.github.io/mkdocs-material/blog/2026/02/18/mkdocs-2.0/
+mkdocs<2
 mkdocs-macros-plugin
 mkdocs-gen-files
 mkdocs-material

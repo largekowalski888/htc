@@ -1,5 +1,5 @@
 # Base components which are needed for cluster jobs and testing
-FROM nvidia/cuda:12.8.1-base-ubuntu24.04
+FROM nvidia/cuda:12.9.1-base-ubuntu24.04
 
 # Avoid Docker build freeze due to region selection
 ENV DEBIAN_FRONTEND=noninteractive
@@ -22,7 +22,7 @@ ENV PATH="/opt/conda/envs/htc/bin:/opt/conda/condabin:${PATH}"
 RUN curl -L -O https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh \
  && bash Miniforge3-Linux-x86_64.sh -b -p "/opt/conda" \
  && conda update -y --all \
- && conda create --yes --name htc python=3.13 \
+ && conda create --yes --name htc python=3.14 \
  && rm -f Miniforge3-Linux-x86_64.sh
 
 # Ignore root warning since we are in a container

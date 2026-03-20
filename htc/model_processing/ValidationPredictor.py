@@ -36,7 +36,8 @@ class ValidationPredictor(Predictor):
                 assert not split_name.endswith("_known"), "Predictions should not be done on the known dataset"
 
                 if (
-                    spec.table()
+                    spec
+                    .table()
                     .query("split_name == @split_name")
                     .duplicated(subset=["split_name", "image_name"])
                     .any()

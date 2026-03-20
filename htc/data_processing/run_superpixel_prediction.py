@@ -1,10 +1,10 @@
 # SPDX-FileCopyrightText: 2022 Division of Intelligent Medical Systems, DKFZ
 # SPDX-License-Identifier: MIT
 
+from functools import partial
 from typing import Any
 
 import pandas as pd
-from threadpoolctl import threadpool_limits
 
 from htc.evaluation.evaluate_images import evaluate_images
 from htc.evaluation.evaluate_superpixels import EvaluateSuperpixelImage
@@ -17,7 +17,7 @@ from htc.utils.helper_functions import get_nsd_thresholds
 from htc.utils.parallel import p_map
 
 
-def aggregate_results(i: int) -> dict[str, dict | Any]:
+def aggregate_results(i: int, dataset_all: DatasetImage, tolerances: list[float]) -> dict[str, dict | Any]:
     sample = dataset_all[i]
     result = EvaluateSuperpixelImage().evaluate_cpp(sample)
     result_eval = result["evaluation"]
@@ -27,6 +27,7 @@ def aggregate_results(i: int) -> dict[str, dict | Any]:
     predictions = result["predictions"].unsqueeze(dim=0)
     labels = sample["labels"].unsqueeze(dim=0)
     mask = sample["valid_pixels"].unsqueeze(dim=0)
+
     metrics = evaluate_images(predictions, labels, mask, tolerances=tolerances, metrics=["NSD", "ASD"])[0]
 
     return {
@@ -45,8 +46,9 @@ if __name__ == "__main__":
     dataset_all = DatasetImage(paths, train=False, config=config)
     tolerances = get_nsd_thresholds(settings_seg.label_mapping)
 
-    with threadpool_limits(1):
-        rows = p_map(aggregate_results, range(len(dataset_all)))
+    rows = p_map(
+        partial(aggregate_results, dataset_all=dataset_all, tolerances=tolerances), range(len(dataset_all)), num_cpus=2
+    )
 
     df = pd.DataFrame(rows)
     target_folder = settings.results_dir / "superpixel_gt"

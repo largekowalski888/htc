@@ -127,7 +127,8 @@ class BootstrapRanking:
             return self._counts
 
         self._counts = (
-            self.bootstraps.groupby(["task", "algorithm", "rank"], as_index=True)[["rank"]]
+            self.bootstraps
+            .groupby(["task", "algorithm", "rank"], as_index=True)[["rank"]]
             .count()
             .rename(columns={"rank": "count"})
             .reset_index()

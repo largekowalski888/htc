@@ -18,7 +18,7 @@ jobs:
           pip install requests
           DATASETS_KEY=`python -c "\
           import requests;\
-          datasets=[requests.head('https://heiporspectral.org/example.zip').headers.get('Last-Modified'),\
+          datasets=[requests.head('https://extra.spectralverse-heidelberg.org/HeiPorSPECTRAL/HeiPorSPECTRAL_example.zip').headers.get('Last-Modified'),\
                     requests.head('https://extra.spectralverse-heidelberg.org/xeno-spectral/xeno_spectral_pig_example.zip').headers.get('Last-Modified'),\
                     requests.head('https://extra.spectralverse-heidelberg.org/xeno-spectral/xeno_spectral_rat_example.zip').headers.get('Last-Modified')];\
           print('_'.join(datasets).replace(' ', '-').replace(',', '').replace(':', '-'))"`
@@ -38,8 +38,8 @@ jobs:
       - name: Download datasets
         if: steps.cache-datasets.outputs.cache-hit != 'true'
         run: |
-          wget --no-verbose https://heiporspectral.org/example.zip
-          unzip -q example.zip
+          wget --no-verbose https://extra.spectralverse-heidelberg.org/HeiPorSPECTRAL/HeiPorSPECTRAL_example.zip
+          unzip -q HeiPorSPECTRAL_example.zip
           wget --no-verbose https://extra.spectralverse-heidelberg.org/xeno-spectral/xeno_spectral_pig_example.zip
           unzip -q xeno_spectral_pig_example.zip
           wget --no-verbose https://extra.spectralverse-heidelberg.org/xeno-spectral/xeno_spectral_rat_example.zip
@@ -52,7 +52,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        python-version: ["3.11", "3.12", "3.13"]
+        python-version: ["3.12", "3.13", "3.14"]
 
     steps:
       - name: Checkout files

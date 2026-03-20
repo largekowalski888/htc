@@ -29,11 +29,9 @@ The figures for this paper are created via the notebooks in [`paper/ScienceAdvan
 
 ## Data specification files
 
-The paper contains two main downstream tasks (sepsis diagnosis and mortality prediction) and employs a nested cross-validation scheme. To represent these experiments, we need a lot of data specification files. Create them by running the following command:
+The paper contains two main downstream tasks (sepsis diagnosis and mortality prediction) and employs a nested cross-validation scheme. To represent these experiments, we need a lot of data specification files.
 
-```bash
-htc sepsis_icu_datasets
-```
+(!) Note: Scikit learn version 1.8.0. has changed StratifiedGroupKFold, therefore the script run_sepsis_icu_datasets.py does not yield the same specs anymore. Now, take the already produces ones instead, lying at htc_projects/sepsis_icu/data
 
 ## Metadata feature importance
 

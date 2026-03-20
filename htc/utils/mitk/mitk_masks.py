@@ -5,12 +5,12 @@ import io
 import json
 import re
 import xml.etree.ElementTree as ET
+from collections.abc import Buffer
 from copy import deepcopy
 from pathlib import Path
 
 import numpy as np
 from matplotlib.colors import to_hex, to_rgb
-from typing_extensions import Buffer
 
 from htc.cpp import nunique
 from htc.utils.import_extra import requires_extra

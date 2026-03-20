@@ -496,7 +496,7 @@ class Settings:
                         if path and path != results_dir_path:  # No duplicate paths
                             self._results_dir.add_alternative(path)
 
-                if self.should_add_network_alternatives:
+                if self.should_add_network_alternatives and self.datasets.network_project is not None:
                     local_location_names = [l.name for l in self._results_dir.possible_locations()]
                     for d in sorted(self.datasets.network_project.glob("results*")):
                         if d.name not in local_location_names:  # Do not add it if it already exists locally

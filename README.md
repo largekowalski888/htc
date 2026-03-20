@@ -24,7 +24,7 @@ This package is a framework for automated tissue classification and segmentation
 This framework is designed to work on HSI data from the [Tivita](https://diaspective-vision.com/en/) cameras but you can adapt it to different HSI datasets as well. Potential applications include:
 
 - Use our data loading and processing pipeline to easily access image and meta data for any work utilizing Tivita datasets.
-- This repository is tightly coupled to work with the public [HeiPorSPECTRAL](https://heiporspectral.org/) and [xeno-spectral](https://spectralverse-heidelberg.org/xeno-spectral) datasets. If you already downloaded the data, you only need to perform the setup steps and then you can directly use the `htc` framework to work on the data (cf. [our tutorials](./README.md#tutorials)).
+- This repository is tightly coupled to work with the public [HeiPorSPECTRAL](https://spectralverse-heidelberg.org/HeiPorSPECTRAL) and [xeno-spectral](https://spectralverse-heidelberg.org/xeno-spectral) datasets. If you already downloaded the data, you only need to perform the setup steps and then you can directly use the `htc` framework to work on the data (cf. [our tutorials](./README.md#tutorials)).
 - Train your own networks and benefit from a pipeline offering e.g. efficient data loading, correct hierarchical aggregation of results and a set of helpful visualizations.
 - Use our pretrained models to initialize the weights for your own training.
 - Use our pretrained models to generate predictions for your own data.
@@ -167,7 +167,7 @@ If you want to make changes to the package code (which is highly welcome 😉), 
 
 ```bash
 # Set up the conda environment
-conda create --yes --name htc python=3.13
+conda create --yes --name htc python=3.14
 conda activate htc
 
 # Install the htc package and its requirements
@@ -216,7 +216,7 @@ After setting your environment variables, it is recommended to run `htc info` to
 
 A series of [tutorials](./tutorials) can help you get started on the `htc` framework by guiding you through different usage scenarios.
 
-> 💡 The tutorials make use of our public HSI dataset [HeiPorSPECTRAL](https://heiporspectral.org/). If you want to directly run them, please download the dataset first and make it accessible via the environment variable `PATH_Tivita_HeiPorSPECTRAL` as described above.
+> 💡 The tutorials make use of our public HSI dataset [HeiPorSPECTRAL](https://spectralverse-heidelberg.org/HeiPorSPECTRAL). If you want to directly run them, please download the dataset first and make it accessible via the environment variable `PATH_Tivita_HeiPorSPECTRAL` as described above.
 
 - As a start, we recommend to take a look at this [general notebook](./tutorials/General.ipynb) which showcases the basic functionalities of the `htc` framework. Namely, it demonstrates the usage of the `DataPath` class which is the entry point to load and process HSI data. For example, you will learn how to read HSI cubes, segmentation masks and meta data. Among others, you can use this information to calculate the median spectrum of an organ.
 - You want to perform some spectral analysis? Then we have a notebook on [loading and working with median spectra](./tutorials/MedianSpectra.ipynb) for you.
@@ -238,16 +238,16 @@ The following table lists all the models you can get for surgical scene segmenta
 <!-- prettier-ignore -->
 | model type | modality | class | run folder |
 | ----------- | ----------- | ----------- | ----------- |
-| image | hsi | [`ModelImage`](./htc/models/image/ModelImage.py) | `2025-03-09_19-38-10_projected-malperfusion_rat2pig_nested-*-2` (outer folds: [0](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_projected-malperfusion_rat2pig_nested-0-2.zip), [1](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_projected-malperfusion_rat2pig_nested-1-2.zip), [2](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_projected-malperfusion_rat2pig_nested-2-2.zip)) |
-| image | hsi | [`ModelImage`](./htc/models/image/ModelImage.py) | `2025-03-09_19-38-10_projected-malperfusion_rat2human_nested-*-2` (outer folds: [0](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_projected-malperfusion_rat2human_nested-0-2.zip), [1](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_projected-malperfusion_rat2human_nested-1-2.zip), [2](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_projected-malperfusion_rat2human_nested-2-2.zip)) |
-| image | hsi | [`ModelImage`](./htc/models/image/ModelImage.py) | `2025-03-09_19-38-10_projected-malperfusion_pig2rat_nested-*-2` (outer folds: [0](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_projected-malperfusion_pig2rat_nested-0-2.zip), [1](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_projected-malperfusion_pig2rat_nested-1-2.zip), [2](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_projected-malperfusion_pig2rat_nested-2-2.zip)) |
-| image | hsi | [`ModelImage`](./htc/models/image/ModelImage.py) | `2025-03-09_19-38-10_projected-malperfusion_pig2human_nested-*-2` (outer folds: [0](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_projected-malperfusion_pig2human_nested-0-2.zip), [1](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_projected-malperfusion_pig2human_nested-1-2.zip), [2](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_projected-malperfusion_pig2human_nested-2-2.zip)) |
-| image | hsi | [`ModelImage`](./htc/models/image/ModelImage.py) | `2025-03-09_19-38-10_projected-ICG_rat2pig_nested-*-2` (outer folds: [0](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_projected-ICG_rat2pig_nested-0-2.zip), [1](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_projected-ICG_rat2pig_nested-1-2.zip), [2](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_projected-ICG_rat2pig_nested-2-2.zip)) |
-| image | hsi | [`ModelImage`](./htc/models/image/ModelImage.py) | `2025-03-09_19-38-10_projected-ICG_pig2rat_nested-*-2` (outer folds: [0](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_projected-ICG_pig2rat_nested-0-2.zip), [1](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_projected-ICG_pig2rat_nested-1-2.zip), [2](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_projected-ICG_pig2rat_nested-2-2.zip)) |
-| image | hsi | [`ModelImage`](./htc/models/image/ModelImage.py) | `2025-03-09_19-38-10_joint_pig-p+rat-p2human_nested-*-2` (outer folds: [0](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_joint_pig-p+rat-p2human_nested-0-2.zip), [1](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_joint_pig-p+rat-p2human_nested-1-2.zip), [2](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_joint_pig-p+rat-p2human_nested-2-2.zip)) |
-| image | hsi | [`ModelImage`](./htc/models/image/ModelImage.py) | `2025-03-09_19-38-10_baseline_rat_nested-*-2` (outer folds: [0](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_baseline_rat_nested-0-2.zip), [1](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_baseline_rat_nested-1-2.zip), [2](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_baseline_rat_nested-2-2.zip)) |
-| image | hsi | [`ModelImage`](./htc/models/image/ModelImage.py) | `2025-03-09_19-38-10_baseline_pig_nested-*-2` (outer folds: [0](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_baseline_pig_nested-0-2.zip), [1](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_baseline_pig_nested-1-2.zip), [2](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_baseline_pig_nested-2-2.zip)) |
-| image | hsi | [`ModelImage`](./htc/models/image/ModelImage.py) | `2025-03-09_19-38-10_baseline_human_nested-*-2` (outer folds: [0](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_baseline_human_nested-0-2.zip), [1](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_baseline_human_nested-1-2.zip), [2](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_baseline_human_nested-2-2.zip)) |
+| image | hsi | [`ModelImage`](./htc/models/image/ModelImage.py) | `2025-06-07_20-24-33_projected-malperfusion_rat2pig_nested-*-2` (outer folds: [0](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_projected-malperfusion_rat2pig_nested-0-2.zip), [1](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_projected-malperfusion_rat2pig_nested-1-2.zip), [2](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_projected-malperfusion_rat2pig_nested-2-2.zip)) |
+| image | hsi | [`ModelImage`](./htc/models/image/ModelImage.py) | `2025-06-07_20-24-33_projected-malperfusion_rat2human_nested-*-2` (outer folds: [0](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_projected-malperfusion_rat2human_nested-0-2.zip), [1](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_projected-malperfusion_rat2human_nested-1-2.zip), [2](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_projected-malperfusion_rat2human_nested-2-2.zip)) |
+| image | hsi | [`ModelImage`](./htc/models/image/ModelImage.py) | `2025-06-07_20-24-33_projected-malperfusion_pig2rat_nested-*-2` (outer folds: [0](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_projected-malperfusion_pig2rat_nested-0-2.zip), [1](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_projected-malperfusion_pig2rat_nested-1-2.zip), [2](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_projected-malperfusion_pig2rat_nested-2-2.zip)) |
+| image | hsi | [`ModelImage`](./htc/models/image/ModelImage.py) | `2025-06-07_20-24-33_projected-malperfusion_pig2human_nested-*-2` (outer folds: [0](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_projected-malperfusion_pig2human_nested-0-2.zip), [1](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_projected-malperfusion_pig2human_nested-1-2.zip), [2](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_projected-malperfusion_pig2human_nested-2-2.zip)) |
+| image | hsi | [`ModelImage`](./htc/models/image/ModelImage.py) | `2025-06-07_20-24-33_projected-ICG_rat2pig_nested-*-2` (outer folds: [0](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_projected-ICG_rat2pig_nested-0-2.zip), [1](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_projected-ICG_rat2pig_nested-1-2.zip), [2](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_projected-ICG_rat2pig_nested-2-2.zip)) |
+| image | hsi | [`ModelImage`](./htc/models/image/ModelImage.py) | `2025-06-07_20-24-33_projected-ICG_pig2rat_nested-*-2` (outer folds: [0](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_projected-ICG_pig2rat_nested-0-2.zip), [1](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_projected-ICG_pig2rat_nested-1-2.zip), [2](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_projected-ICG_pig2rat_nested-2-2.zip)) |
+| image | hsi | [`ModelImage`](./htc/models/image/ModelImage.py) | `2025-06-07_20-24-33_joint_pig-p+rat-p2human_nested-*-2` (outer folds: [0](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_joint_pig-p+rat-p2human_nested-0-2.zip), [1](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_joint_pig-p+rat-p2human_nested-1-2.zip), [2](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_joint_pig-p+rat-p2human_nested-2-2.zip)) |
+| image | hsi | [`ModelImage`](./htc/models/image/ModelImage.py) | `2025-06-07_20-24-33_baseline_rat_nested-*-2` (outer folds: [0](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_baseline_rat_nested-0-2.zip), [1](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_baseline_rat_nested-1-2.zip), [2](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_baseline_rat_nested-2-2.zip)) |
+| image | hsi | [`ModelImage`](./htc/models/image/ModelImage.py) | `2025-06-07_20-24-33_baseline_pig_nested-*-2` (outer folds: [0](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_baseline_pig_nested-0-2.zip), [1](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_baseline_pig_nested-1-2.zip), [2](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_baseline_pig_nested-2-2.zip)) |
+| image | hsi | [`ModelImage`](./htc/models/image/ModelImage.py) | `2025-06-07_20-24-33_baseline_human_nested-*-2` (outer folds: [0](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_baseline_human_nested-0-2.zip), [1](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_baseline_human_nested-1-2.zip), [2](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_baseline_human_nested-2-2.zip)) |
 | image | hsi | [`ModelImage`](./htc/models/image/ModelImage.py) | [`2023-02-08_14-48-02_organ_transplantation_0.8`](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2023-02-08_14-48-02_organ_transplantation_0.8.zip) |
 | image | rgb | [`ModelImage`](./htc/models/image/ModelImage.py) | [`2023-01-29_11-31-04_organ_transplantation_0.8_rgb`](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2023-01-29_11-31-04_organ_transplantation_0.8_rgb.zip) |
 | image | hsi | [`ModelImage`](./htc/models/image/ModelImage.py) | [`2022-02-03_22-58-44_generated_default_model_comparison`](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2022-02-03_22-58-44_generated_default_model_comparison.zip) |
@@ -392,29 +392,28 @@ This paper presents a deep learning framework for automated sepsis diagnosis and
 
 </details>
 
-### 📝 [Xeno-learning: knowledge transfer across species in deep learning-based spectral image analysis](https://doi.org/10.48550/arXiv.2410.19789)
+### 📝 [Xeno-learning: knowledge transfer across species in deep learning-based spectral image analysis](https://doi.org/10.1038/s41551-025-01585-4)
 
 <div align="center">
 <a href="https://e130-hyperspectal-tissue-classification.s3.dkfz.de/figures/species_motivation.pdf"><img src="https://e130-hyperspectal-tissue-classification.s3.dkfz.de/figures/species_motivation.png" alt="Logo" width="700" /></a>
 </div>
 
-This paper introduces a cross-species knowledge transfer paradigm termed <i>xeno-learning</i> to make use of what has been learned in one species in other species. Specifically, we showcase how human segmentation performance on malperfused tissues can be improved by leveraging perfusion knowledge obtained from animal data via a <q>physiology-based data augmentation</q> method. All trained networks are available as pretrained models (baseline networks and networks which included the new data augmentation method during training). Compared to previous papers, we switched to a nested cross-validation scheme with 3 outer folds so each training configuration is composed of 3 run folders on disk. However, you can still refer to them via the `run_folder` argument by using a wildcard (e.g., `2025-03-09_19-38-10_baseline_human_nested-*-2` to get the baseline networks `0`, `1` and `2` trained on human data). You can find all notebooks which generate the paper figures in [paper/NatureBME2025](./paper/NatureBME2025) accompanied by [reproducibility instructions](./paper/NatureBME2025/reproducibility.md). The code for all experiments is located in the [htc_projects/species](./htc_projects/species/) folder.
+This paper introduces a cross-species knowledge transfer paradigm termed <i>xeno-learning</i> to make use of what has been learned in one species in other species. Specifically, we showcase how human segmentation performance on malperfused tissues can be improved by leveraging perfusion knowledge obtained from animal data via a <q>physiology-based data augmentation</q> method. All trained networks are available as pretrained models (baseline networks and networks which included the new data augmentation method during training). Compared to previous papers, we switched to a nested cross-validation scheme with 3 outer folds so each training configuration is composed of 3 run folders on disk. However, you can still refer to them via the `run_folder` argument by using a wildcard (e.g., `2025-06-07_20-24-33_baseline_human_nested-*-2` to get the baseline networks `0`, `1` and `2` trained on human data). You can find all notebooks which generate the paper figures in [paper/NatureBME2026](./paper/NatureBME2026) accompanied by [reproducibility instructions](./paper/NatureBME2026/reproducibility.md). The code for all experiments is located in the [htc_projects/species](./htc_projects/species/) folder.
 
-> 📂 The dataset for this paper is not fully publicly available, but a subset of the data is available through the public [HeiPorSPECTRAL](https://heiporspectral.org/) dataset.
+> 📂 The animal data for this dataset is publicly available. The human data is not publicly available.
 
 <details closed>
 <summary>Cite via BibTeX</summary>
 
 ```bibtex
-@misc{sellner_species_2024,
-  author      = {Sellner, Jan and Studier-Fischer, Alexander and Qasim, Ahmad Bin and Seidlitz, Silvia and Schreck, Nicholas and Tizabi, Minu and Wiesenfarth, Manuel and Kopp-Schneider, Annette and Knödler, Samuel and Haney, Caelan Max and Salg, Gabriel and Özdemir, Berkin and Dietrich, Maximilian and Michel, Maurice Stephan and Nickel, Felix and Kowalewski, Karl-Friedrich and Maier-Hein, Lena},
-  url         = {https://arxiv.org/abs/2410.19789},
-  date        = {2024},
-  doi         = {10.48550/arXiv.2410.19789},
-  eprint      = {2410.19789},
-  eprintclass = {cs.CV},
-  eprinttype  = {arXiv},
-  title       = {Xeno-learning: knowledge transfer across species in deep learning-based spectral image analysis},
+@article{sellner_species_2026,
+  author       = {Sellner, Jan and Studier-Fischer, Alexander and Qasim, Ahmad Bin and Seidlitz, Silvia and Schreck, Nicholas and Tizabi, Minu and Wiesenfarth, Manuel and Kopp-Schneider, Annette and Heinecke, Janne and Brandt, Jule and Knoedler, Samuel and Max Haney, Caelan and Salg, Gabriel and Özdemir, Berkin and Dietrich, Maximilian and Michel, Maurice Stephan and Nickel, Felix and Kowalewski, Karl-Friedrich and Maier-Hein, Lena},
+  url          = {https://spectralverse-heidelberg.org},
+  date         = {2026-01-26},
+  doi          = {10.1038/s41551-025-01585-4},
+  issn         = {2157-846X},
+  journaltitle = {Nature Biomedical Engineering},
+  title        = {Xeno-learning: knowledge transfer across species in deep learning-based spectral image analysis},
 }
 ```
 
@@ -430,7 +429,7 @@ This MICCAI2023 paper is the direct successor of our MIA2022 paper. We analyzed 
 
 > 💡 If you are only interested in our data augmentation method, you can also head over to [Kornia](https://github.com/kornia/kornia) where this augmentation is implemented for generic use cases (including 2D and 3D data). You will find it under the name [`RandomTransplantation`](https://kornia.readthedocs.io/en/latest/augmentation.module.html#kornia.augmentation.RandomTransplantation).
 
-> 📂 The dataset for this paper is not publicly available.
+> 📂 The dataset for this paper is publicly available.
 
 <details closed>
 <summary>Cite via BibTeX</summary>
@@ -460,7 +459,7 @@ This MICCAI2023 paper is the direct successor of our MIA2022 paper. We analyzed 
 
 In this paper, we tackled fully automatic organ segmentation and compared deep learning models on different spatial granularities (e.g. patch vs. image) and modalities (e.g. HSI vs. RGB). Furthermore, we studied the required amount of training data and the generalization capabilities of our models across subjects. The pretrained networks are related to this paper. You can find the notebooks to generate the paper figures in [paper/MIA2022](./paper/MIA2022) (the folder also includes a [reproducibility document](./paper/MIA2022/reproducibility.md)) and the models in [htc/models](./htc/models). For each model, there are three configuration files, namely `default`, `default_rgb` and `default_parameters`, which correspond to the HSI, RGB and TPI modality, respectively. You can also download the [NSD thresholds](https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/nsd_thresholds_semantic.csv) which we used for the NSD metric (cf. Fig. 12).
 
-> 📂 The dataset for this paper is not publicly available.
+> 📂 The dataset for this paper is publicly available.
 
 <details closed>
 <summary>Cite via BibTeX</summary>
@@ -487,7 +486,7 @@ The poster was presented at the PyTorch Conference 2023 and presents several sol
 
 You can find the code to generate the results figures of the poster in [paper/PyTorchConf2023](./paper/PyTorchConf2023) including [reproducibility instructions](./paper/PyTorchConf2023/reproducibility.md). The experiment code can be found in the project folder [htc_projects/benchmarking](./htc_projects/benchmarking).
 
-> 📂 The dataset for this poster is not publicly available.
+> 📂 The dataset for this poster is publicly available.
 
 <details closed>
 <summary>Cite via BibTeX</summary>
@@ -506,9 +505,9 @@ You can find the code to generate the results figures of the poster in [paper/Py
 
 ### 📝 [HeiPorSPECTRAL - the Heidelberg Porcine HyperSPECTRAL Imaging Dataset of 20 Physiological Organs](https://doi.org/10.1038/s41597-023-02315-8)
 
-This paper introduces the [HeiPorSPECTRAL](https://heiporspectral.org/) dataset containing 5756 hyperspectral images from 11 subjects. We are using these images in our tutorials. You can find the visualization notebook for the paper figures in [paper/NatureData2023](./paper/NatureData2023) (the folder also includes a [reproducibility document](./paper/NatureData2023/reproducibility.md)) and the remaining code in [htc_projects/atlas_open](./htc_projects/atlas_open).
+This paper introduces the [HeiPorSPECTRAL](https://spectralverse-heidelberg.org/HeiPorSPECTRAL) dataset containing 5756 hyperspectral images from 11 subjects. We are using these images in our tutorials. You can find the visualization notebook for the paper figures in [paper/NatureData2023](./paper/NatureData2023) (the folder also includes a [reproducibility document](./paper/NatureData2023/reproducibility.md)) and the remaining code in [htc_projects/atlas_open](./htc_projects/atlas_open).
 
-If you want to learn more about the [HeiPorSPECTRAL](https://heiporspectral.org/) dataset (e.g. the underlying data structure) or you stumbled upon a file and want to know how to read it, you might find this [notebook with low-level details](./htc_projects/atlas_open/FileReference.ipynb) helpful.
+If you want to learn more about the [HeiPorSPECTRAL](https://spectralverse-heidelberg.org/HeiPorSPECTRAL) dataset (e.g. the underlying data structure) or you stumbled upon a file and want to know how to read it, you might find this [notebook with low-level details](./htc_projects/atlas_open/FileReference.ipynb) helpful.
 
 > 📂 The dataset for this paper is publicly available.
 
@@ -518,7 +517,7 @@ If you want to learn more about the [HeiPorSPECTRAL](https://heiporspectral.org/
 ```bibtex
 @article{studierfischer_open_2023,
   author       = {Studier-Fischer, Alexander and Seidlitz, Silvia and Sellner, Jan and Bressan, Marc and Özdemir, Berkin and Ayala, Leonardo and Odenthal, Jan and Knoedler, Samuel and Kowalewski, Karl-Friedrich and Haney, Caelan Max and Salg, Gabriel and Dietrich, Maximilian and Kenngott, Hannes and Gockel, Ines and Hackert, Thilo and Müller-Stich, Beat Peter and Maier-Hein, Lena and Nickel, Felix},
-  url          = {https://heiporspectral.org},
+  url          = {https://spectralverse-heidelberg.org/HeiPorSPECTRAL},
   date         = {2023-06-24},
   doi          = {10.1038/s41597-023-02315-8},
   issn         = {2052-4463},
@@ -536,7 +535,7 @@ If you want to learn more about the [HeiPorSPECTRAL](https://heiporspectral.org/
 
 In this paper, we trained a classification model based on median spectra from HSI data. You can find the model code in [htc_projects/atlas](./htc_projects/atlas) and the confusion matrix figure of the paper in [paper/NatureReports2022](./paper/NatureReports2022) (including a reproducibility document).
 
-> 📂 The dataset for this paper is not fully publicly available, but a subset of the data is available through the public [HeiPorSPECTRAL](https://heiporspectral.org/) dataset.
+> 📂 The dataset for this paper is not fully publicly available, but a subset of the data is available through the public [HeiPorSPECTRAL](https://spectralverse-heidelberg.org/HeiPorSPECTRAL) dataset.
 
 <details closed>
 <summary>Cite via BibTeX</summary>

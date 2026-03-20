@@ -56,7 +56,8 @@ class VariableGeneration:
         df = df.reset_index()
 
         df_change = (
-            df.query("dataset not in ['semantic', 'no-glove'] and network == 'image'")
+            df
+            .query("dataset not in ['semantic', 'no-glove'] and network == 'image'")
             .groupby("modality")
             .agg(relative_change_DSC=("relative_change_DSC", "mean"))
         )

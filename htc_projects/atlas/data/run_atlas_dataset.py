@@ -36,7 +36,8 @@ class SpecsGenerationTissueAtlas(SpecsGeneration):
 
         for subject_name in train_pigs:
             imgs_train = (
-                self.df.query("subject_name != @subject_name and subject_name not in @self.test_pigs")["image_name"]
+                self.df
+                .query("subject_name != @subject_name and subject_name not in @self.test_pigs")["image_name"]
                 .unique()
                 .tolist()
             )

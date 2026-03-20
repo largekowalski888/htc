@@ -297,7 +297,7 @@ def icg_table(label_mapping: LabelMapping = None) -> pd.DataFrame:
         label_mapping=label_mapping,
         keep_mapped_columns=False,
     )
-    df_icg = pd.json_normalize(df_rat["icg"])
+    df_icg = pd.json_normalize(df_rat[~pd.isna(df_rat["icg"])]["icg"])
     df_icg.columns = [f"icg_{col}" for col in df_icg.columns]
 
     # The rat data contains time series ICG data and we consider every image within 10 minutes after the ICG injection as clear cases

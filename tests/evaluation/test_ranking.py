@@ -50,7 +50,8 @@ def test_bootstrap_ranking(bootstrap_subjects: bool) -> None:
         ).bootstraps
 
     df_rel = (
-        df_bootstraps.groupby(["task", "algorithm", "rank"], as_index=True)[["rank"]]
+        df_bootstraps
+        .groupby(["task", "algorithm", "rank"], as_index=True)[["rank"]]
         .count()
         .rename(columns={"rank": "count"})
         .reset_index()

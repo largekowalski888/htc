@@ -2725,3 +2725,33 @@ def boxplot_symbols(
                     row=row,
                     col=col,
                 )
+
+
+def timedelta_plotly_fix(df: pd.DataFrame, columns: list[str]) -> pd.DataFrame:
+    """
+    Convert timedelta columns to seconds for Plotly compatibility.
+
+    Plotly does not natively support plotting timedelta64 data types. This function converts specified timedelta columns to their numeric representation in seconds, allowing them to be plotted in Plotly.
+
+    Note: This function may become obsolete if Plotly adds native timedelta support.
+
+    Args:
+        df: The input DataFrame containing timedelta columns.
+        columns: List of column names to convert from timedelta to seconds.
+
+    Returns: A copy of the input DataFrame with specified timedelta columns converted to seconds.
+
+    Example:
+        >>> import pandas as pd
+        >>> df = pd.DataFrame({"duration": pd.to_timedelta(["1 days", "2 days"])})
+        >>> result = timedelta_plotly_fix(df, ["duration"])
+        >>> result["duration"].iloc[0].item()
+        86400.0
+    """
+    # Unfortunately, plotly does not support plotting timedelta64 directly at the moment --> convert to seconds
+    # This function can be removed in case this gets ever fixed in plotly
+    df = df.copy()
+    for c in columns:
+        df[c] = df[c].dt.total_seconds()
+
+    return df

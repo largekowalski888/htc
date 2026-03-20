@@ -25,7 +25,7 @@ from htc.utils.parallel import p_map
 from htc_projects.atlas.settings_atlas import settings_atlas
 
 try:
-    from pypdf import PdfMerger, PdfReader, PdfWriter, Transformation
+    from pypdf import PdfReader, PdfWriter, Transformation
 
     _missing_library = ""
 except ImportError:
@@ -301,7 +301,7 @@ def profile_pages(file: Path, label_name: str, annotation_name: str, paths: list
         task_name=f"Profiles for {annotation_name}@{label_name}",
     )
 
-    merger = PdfMerger()
+    merger = PdfWriter()
     for page in pages:
         merger.append(page)
 

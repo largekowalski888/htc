@@ -201,7 +201,8 @@ class HideAndSeek(ContextTransformation):
             mask = mask.permute(1, 2, 0)  # BHW --> HWB
             patch_features = (
                 # Unfold H dim
-                mask.unfold(dimension=0, size=patch_height, step=patch_height)
+                mask
+                .unfold(dimension=0, size=patch_height, step=patch_height)
                 # Unfold W dim
                 .unfold(dimension=1, size=patch_width, step=patch_width)
                 # BLhw (L = number of patches; h, w = patch dimensions)
@@ -611,7 +612,8 @@ class RandomJigsaw(HTCTransformation):
         tensor = tensor.permute(1, 2, 0, 3)  # BHWC --> HWBC
         patch_features = (
             # Unfold H dim
-            tensor.unfold(dimension=0, size=patch_height, step=patch_height)
+            tensor
+            .unfold(dimension=0, size=patch_height, step=patch_height)
             # Unfold W dim
             .unfold(dimension=1, size=patch_width, step=patch_width)
             # B*LChw (L = number of patches; h, w = patch dimensions)

@@ -72,7 +72,8 @@ class VariableGeneration:
 
     def add_model_results(self) -> None:
         df_agg = (
-            self.df_best.groupby(["network", "dataset", "modality"], as_index=False)[
+            self.df_best
+            .groupby(["network", "dataset", "modality"], as_index=False)[
                 ["dice_metric", settings_seg.nsd_aggregation_short]
             ]
             .agg(["mean", "std"])
@@ -84,7 +85,8 @@ class VariableGeneration:
 
         # RGB vs. HSI performance
         df_datasets_modality = (
-            df_agg.query("network == 'organ_transplantation'")
+            df_agg
+            .query("network == 'organ_transplantation'")
             .groupby("modality")["dice_metric_mean"]
             .agg(["mean", "std"])
         )
@@ -214,7 +216,8 @@ class VariableGeneration:
             )
 
         df_drops_range = (
-            df_performance.query("drop_DSC > 0")
+            df_performance
+            .query("drop_DSC > 0")
             .groupby(["modality"])
             .agg(
                 min_drop_DSC=pd.NamedAgg(column="drop_DSC", aggfunc="min"),
@@ -238,7 +241,8 @@ class VariableGeneration:
 
         # Improvement range only for the OOD datasets, i.e. the datasets where we have a drop
         df_improvements_range = (
-            df_performance.query("drop_DSC > 0")
+            df_performance
+            .query("drop_DSC > 0")
             .groupby(["modality"])
             .agg(
                 min_improvement_DSC=pd.NamedAgg(column="improvement_DSC", aggfunc="min"),
@@ -270,13 +274,9 @@ class VariableGeneration:
             "\\SI{" + f"{df_improvements_range.loc['RGB', 'max_improvement_DSC'].item() * 100:0.0f}" + "}{\\percent}"
         )
 
-        df_drops_max = df_performance.groupby(["modality"]).max("drop_DSC")
-        self.vars["varHSIMaxDrop"] = (
-            "\\SI{" + f"{df_drops_max.loc['HSI', 'drop_DSC'].item() * 100:0.0f}" + "}{\\percent}"
-        )
-        self.vars["varRGBMaxDrop"] = (
-            "\\SI{" + f"{df_drops_max.loc['RGB', 'drop_DSC'].item() * 100:0.0f}" + "}{\\percent}"
-        )
+        df_drops_max = df_performance.groupby(["modality"])["drop_DSC"].max()
+        self.vars["varHSIMaxDrop"] = "\\SI{" + f"{df_drops_max.loc['HSI'].item() * 100:0.0f}" + "}{\\percent}"
+        self.vars["varRGBMaxDrop"] = "\\SI{" + f"{df_drops_max.loc['RGB'].item() * 100:0.0f}" + "}{\\percent}"
 
         # Load cm
         experiment_name = "organ_removal_0"

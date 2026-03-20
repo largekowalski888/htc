@@ -9,7 +9,7 @@ from htc.settings import settings
 
 
 class PythonVersionUpgrader:
-    python_versions = ("3.11", "3.12", "3.13")
+    python_versions = ("3.12", "3.13", "3.14")
 
     def __init__(self):
         """

@@ -178,7 +178,7 @@ class VariableGeneration:
                 meta_set_indices[len(meta_names)] = settings_sepsis_icu.metadata_groups_renaming.get(set_name, set_name)
 
                 for meta_name in settings_sepsis_icu.metadata_selection_comprehensive[set_name]:
-                    if meta_name in ["milrinone_dose"]:
+                    if meta_name == "milrinone_dose":
                         continue
 
                     meta_names.append(meta_name)

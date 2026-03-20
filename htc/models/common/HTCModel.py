@@ -102,126 +102,126 @@ class HTCModel(nn.Module, metaclass=PostInitCaller):
             "sha256": "503258ade835f742759bafa63c50fa0925074189b762bfb391b4a2fecd4ff433",
             "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2023-02-08_14-48-02_organ_transplantation_0.8.zip",
         },
-        # Models from our NatureBME2025 paper
-        "image@2025-03-09_19-38-10_baseline_human_nested-0-2": {
-            "sha256": "f043372659f2e7db0913755dca713ff727e9623f672b50a805fc922e18377c98",
-            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_baseline_human_nested-0-2.zip",
+        # Models from our NatureBME2026 paper
+        "image@2025-06-07_20-24-33_baseline_human_nested-0-2": {
+            "sha256": "dd3555c260dbc4eb8a7ff60ef8e621c7e0ec5aef871b20a6d1b3dcc864da9201",
+            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_baseline_human_nested-0-2.zip",
         },
-        "image@2025-03-09_19-38-10_baseline_human_nested-1-2": {
-            "sha256": "e8b09fbf176470dc0b112bda75c00c5ddf3bbaaf517523b855dc292f7715cc5e",
-            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_baseline_human_nested-1-2.zip",
+        "image@2025-06-07_20-24-33_baseline_human_nested-1-2": {
+            "sha256": "9a0722e2f5a3da6944a04587826795a2a1006e62077c2bf4f76bfa31a7148b5a",
+            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_baseline_human_nested-1-2.zip",
         },
-        "image@2025-03-09_19-38-10_baseline_human_nested-2-2": {
-            "sha256": "e2a5dab3e895a99152d2fafa8658f48bfaeda811119f9454519bbdcd0264f38a",
-            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_baseline_human_nested-2-2.zip",
+        "image@2025-06-07_20-24-33_baseline_human_nested-2-2": {
+            "sha256": "d419a1e14e12e7d9dfd138a015aff30c843618b5dff122ad20a59d42a3a96d1b",
+            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_baseline_human_nested-2-2.zip",
         },
-        "image@2025-03-09_19-38-10_baseline_pig_nested-0-2": {
-            "sha256": "141701f7f0683402658d5bce7c5e32089d85849120f06a19ccd1f677d250900b",
-            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_baseline_pig_nested-0-2.zip",
+        "image@2025-06-07_20-24-33_baseline_pig_nested-0-2": {
+            "sha256": "ecf1b3a2979bfcc152e794abae5b26616b47f0bba94a04b4f09bc433cee2d270",
+            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_baseline_pig_nested-0-2.zip",
         },
-        "image@2025-03-09_19-38-10_baseline_pig_nested-1-2": {
-            "sha256": "d543466e998cccbe20be5c32b4b8756962ade7bf9c86e50aecd36948855cafaa",
-            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_baseline_pig_nested-1-2.zip",
+        "image@2025-06-07_20-24-33_baseline_pig_nested-1-2": {
+            "sha256": "4d1dec6536736565e818f41de9f298a020ce58356dfb49b88019a48f8d0dd2ce",
+            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_baseline_pig_nested-1-2.zip",
         },
-        "image@2025-03-09_19-38-10_baseline_pig_nested-2-2": {
-            "sha256": "6990b0f79a02ee456033e711b3d48c75862e0986582b9ba6458b9acba272d764",
-            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_baseline_pig_nested-2-2.zip",
+        "image@2025-06-07_20-24-33_baseline_pig_nested-2-2": {
+            "sha256": "42d38b26772851e7885cde2e9e9d45e47d3825405a417d441e30560f0a30b9b7",
+            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_baseline_pig_nested-2-2.zip",
         },
-        "image@2025-03-09_19-38-10_baseline_rat_nested-0-2": {
-            "sha256": "314ca5b1c94a5b0bec6027f5f4fc14d906660855b80f4a2c571fa73b75b3f8ec",
-            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_baseline_rat_nested-0-2.zip",
+        "image@2025-06-07_20-24-33_baseline_rat_nested-0-2": {
+            "sha256": "fcf07afb803bc3822e2d13dcb7d917f436a61a81df641518c2a5fe68ec7bd2a7",
+            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_baseline_rat_nested-0-2.zip",
         },
-        "image@2025-03-09_19-38-10_baseline_rat_nested-1-2": {
-            "sha256": "8c3e87df7b30d78035a03f998313f2ec79d2dd93f3e293a9daa4f62ea4191579",
-            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_baseline_rat_nested-1-2.zip",
+        "image@2025-06-07_20-24-33_baseline_rat_nested-1-2": {
+            "sha256": "24b109bc08e767e06a7990e7943c14530715314259e2453b346fb585483c31f2",
+            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_baseline_rat_nested-1-2.zip",
         },
-        "image@2025-03-09_19-38-10_baseline_rat_nested-2-2": {
-            "sha256": "67750bf146c3013e71ad02ac5d4e6b5a0b760e44f88fb4ca439f6a3c03494427",
-            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_baseline_rat_nested-2-2.zip",
+        "image@2025-06-07_20-24-33_baseline_rat_nested-2-2": {
+            "sha256": "d6b351da3676950665026c3ee84a75e21a99a4189f7a51bdb6088c1faac246d6",
+            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_baseline_rat_nested-2-2.zip",
         },
-        "image@2025-03-09_19-38-10_joint_pig-p+rat-p2human_nested-0-2": {
-            "sha256": "0f59d78910280aede87db26548079b65a89478a9aafb8902cc44fc3897bb12a1",
-            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_joint_pig-p+rat-p2human_nested-0-2.zip",
+        "image@2025-06-07_20-24-33_joint_pig-p+rat-p2human_nested-0-2": {
+            "sha256": "310e1a3858ca836e61024c171789151df84270cd181dc5e7e624275657e05a95",
+            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_joint_pig-p+rat-p2human_nested-0-2.zip",
         },
-        "image@2025-03-09_19-38-10_joint_pig-p+rat-p2human_nested-1-2": {
-            "sha256": "103da7443bf94c63abc4d1054a9c24a6eefad0b3c21c71f0acfa0dc903d96ed2",
-            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_joint_pig-p+rat-p2human_nested-1-2.zip",
+        "image@2025-06-07_20-24-33_joint_pig-p+rat-p2human_nested-1-2": {
+            "sha256": "b368cad3ed1c5bc320a9c3e39c43131a599fd12284b767c35d0c0f4b77930806",
+            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_joint_pig-p+rat-p2human_nested-1-2.zip",
         },
-        "image@2025-03-09_19-38-10_joint_pig-p+rat-p2human_nested-2-2": {
-            "sha256": "907736eb8d8a3b823bb06562eab86e339969ad00cf8be2e128d60d855ccc6b1f",
-            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_joint_pig-p+rat-p2human_nested-2-2.zip",
+        "image@2025-06-07_20-24-33_joint_pig-p+rat-p2human_nested-2-2": {
+            "sha256": "3b1bb5149655815b01b26aa29f967fdf6ad4c6bde409d9c23937e4ece2e98d02",
+            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_joint_pig-p+rat-p2human_nested-2-2.zip",
         },
-        "image@2025-03-09_19-38-10_projected-ICG_pig2rat_nested-0-2": {
-            "sha256": "25ea884d0f81ed8613d47af924c34d8fd2af44da61c4d9622caf4fa661a190a1",
-            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_projected-ICG_pig2rat_nested-0-2.zip",
+        "image@2025-06-07_20-24-33_projected-ICG_pig2rat_nested-0-2": {
+            "sha256": "cc91612a136d81774888aae5c0a86bc4267f498723a255da2f7a5aa53443a954",
+            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_projected-ICG_pig2rat_nested-0-2.zip",
         },
-        "image@2025-03-09_19-38-10_projected-ICG_pig2rat_nested-1-2": {
-            "sha256": "e49aefc6b7033cb5eed16334bd30490e789b7e33763bb2f1b4f494c2effa7353",
-            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_projected-ICG_pig2rat_nested-1-2.zip",
+        "image@2025-06-07_20-24-33_projected-ICG_pig2rat_nested-1-2": {
+            "sha256": "713056474b85171960eb24c7adb17d6acaf3cb763132d2a45878a5a8f55333f3",
+            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_projected-ICG_pig2rat_nested-1-2.zip",
         },
-        "image@2025-03-09_19-38-10_projected-ICG_pig2rat_nested-2-2": {
-            "sha256": "5af4e0f5deee17577cf0c93b2f2412ff0e4d4e002cbff5988a02258c03261ed3",
-            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_projected-ICG_pig2rat_nested-2-2.zip",
+        "image@2025-06-07_20-24-33_projected-ICG_pig2rat_nested-2-2": {
+            "sha256": "03d48f2aaefa44f3070bac6e2995938fc5d3e316569e680fbea40174e6dfd8a1",
+            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_projected-ICG_pig2rat_nested-2-2.zip",
         },
-        "image@2025-03-09_19-38-10_projected-ICG_rat2pig_nested-0-2": {
-            "sha256": "8e9abccf8f55b7a185c62e70a50099ddcebd7fe09566ce1e972f4e8bded82618",
-            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_projected-ICG_rat2pig_nested-0-2.zip",
+        "image@2025-06-07_20-24-33_projected-ICG_rat2pig_nested-0-2": {
+            "sha256": "84514a0330f2af2087d9b7a320ac2ebdcbd4b214b1bc13ad96213256a054ed9e",
+            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_projected-ICG_rat2pig_nested-0-2.zip",
         },
-        "image@2025-03-09_19-38-10_projected-ICG_rat2pig_nested-1-2": {
-            "sha256": "2da2a39754d98842586a2256fabf590ea60595b1de78cd5792d8e7569b700087",
-            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_projected-ICG_rat2pig_nested-1-2.zip",
+        "image@2025-06-07_20-24-33_projected-ICG_rat2pig_nested-1-2": {
+            "sha256": "44ecd4f84785a0877d473e60675fb524d2a51fc978c0ed6601bdad0c562b518f",
+            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_projected-ICG_rat2pig_nested-1-2.zip",
         },
-        "image@2025-03-09_19-38-10_projected-ICG_rat2pig_nested-2-2": {
-            "sha256": "4804961a93e1ba7a5ca4c005741fff45338a12879da65695b2280b937e40c54e",
-            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_projected-ICG_rat2pig_nested-2-2.zip",
+        "image@2025-06-07_20-24-33_projected-ICG_rat2pig_nested-2-2": {
+            "sha256": "cc45ffd0f38912430d56aa3c44f69af0383db0d94273ac8064d254bcd76c2c6c",
+            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_projected-ICG_rat2pig_nested-2-2.zip",
         },
-        "image@2025-03-09_19-38-10_projected-malperfusion_pig2human_nested-0-2": {
-            "sha256": "56d499de401422b745ce59d1a8accf7960bcfa2c4cce4310210afda97a2a0fbb",
-            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_projected-malperfusion_pig2human_nested-0-2.zip",
+        "image@2025-06-07_20-24-33_projected-malperfusion_pig2human_nested-0-2": {
+            "sha256": "b379dd150952d8a269b6a8176e9264daebb5a8cdc927820b1b61419e1cba863e",
+            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_projected-malperfusion_pig2human_nested-0-2.zip",
         },
-        "image@2025-03-09_19-38-10_projected-malperfusion_pig2human_nested-1-2": {
-            "sha256": "3eb089186cef7e2b6b23c5336936a5424104e0dee909a43a04d810741aaa018d",
-            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_projected-malperfusion_pig2human_nested-1-2.zip",
+        "image@2025-06-07_20-24-33_projected-malperfusion_pig2human_nested-1-2": {
+            "sha256": "e76b6bbb99c44daf6b2b53e08cb2a473a5cdd5118ec78c2729e26dee0631c199",
+            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_projected-malperfusion_pig2human_nested-1-2.zip",
         },
-        "image@2025-03-09_19-38-10_projected-malperfusion_pig2human_nested-2-2": {
-            "sha256": "68273ff347281fd4442807d1300d5d625c5d64490a4ed03e0a4ed02edac8ab00",
-            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_projected-malperfusion_pig2human_nested-2-2.zip",
+        "image@2025-06-07_20-24-33_projected-malperfusion_pig2human_nested-2-2": {
+            "sha256": "8e61325c4e880dfde996aa71bf67bc0e47a83d06f24551aec8f6e9b90a255991",
+            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_projected-malperfusion_pig2human_nested-2-2.zip",
         },
-        "image@2025-03-09_19-38-10_projected-malperfusion_pig2rat_nested-0-2": {
-            "sha256": "679a3541a3dbc0e09d33703739fc5949da3a86df075032144dbd1665f47c2204",
-            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_projected-malperfusion_pig2rat_nested-0-2.zip",
+        "image@2025-06-07_20-24-33_projected-malperfusion_pig2rat_nested-0-2": {
+            "sha256": "9ebadc0ebd28c8b5c486615746444d5dfe7996a2e57c7c9bca3bc0dd0f9c5e9d",
+            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_projected-malperfusion_pig2rat_nested-0-2.zip",
         },
-        "image@2025-03-09_19-38-10_projected-malperfusion_pig2rat_nested-1-2": {
-            "sha256": "f16fda87d95e45e2ac435f367f1fff3de119a617557cc4b82fa9496af1da5c23",
-            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_projected-malperfusion_pig2rat_nested-1-2.zip",
+        "image@2025-06-07_20-24-33_projected-malperfusion_pig2rat_nested-1-2": {
+            "sha256": "e840003a91f41f07dc2a2b0ed00f37a3249371a6476a736b296b6cd61b9727ae",
+            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_projected-malperfusion_pig2rat_nested-1-2.zip",
         },
-        "image@2025-03-09_19-38-10_projected-malperfusion_pig2rat_nested-2-2": {
-            "sha256": "f94a4a9a966cbfebe0b9f81a12e238a6c72782abc3720ed9f2ebb0286f7b516a",
-            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_projected-malperfusion_pig2rat_nested-2-2.zip",
+        "image@2025-06-07_20-24-33_projected-malperfusion_pig2rat_nested-2-2": {
+            "sha256": "92bdee925873e89dbe61385b6d18b96ad3787c540f6723c7c7b318275ddffc29",
+            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_projected-malperfusion_pig2rat_nested-2-2.zip",
         },
-        "image@2025-03-09_19-38-10_projected-malperfusion_rat2human_nested-0-2": {
-            "sha256": "cdae0e1fb0c86acc4ab8cd3c18311368fed00e64245e5a31611aec65024eac4a",
-            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_projected-malperfusion_rat2human_nested-0-2.zip",
+        "image@2025-06-07_20-24-33_projected-malperfusion_rat2human_nested-0-2": {
+            "sha256": "a217923a1f95362a5e60de58f782e108987a3290924dce490399e5888aef6466",
+            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_projected-malperfusion_rat2human_nested-0-2.zip",
         },
-        "image@2025-03-09_19-38-10_projected-malperfusion_rat2human_nested-1-2": {
-            "sha256": "b5f041dece5a76457c8a79f3f286b9e38a3137576c881d63e5b45fe922a7513a",
-            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_projected-malperfusion_rat2human_nested-1-2.zip",
+        "image@2025-06-07_20-24-33_projected-malperfusion_rat2human_nested-1-2": {
+            "sha256": "11aa1028208dbd22c3f66db73ca484995c209e8f5be5bd6479fef7967f601ff6",
+            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_projected-malperfusion_rat2human_nested-1-2.zip",
         },
-        "image@2025-03-09_19-38-10_projected-malperfusion_rat2human_nested-2-2": {
-            "sha256": "ea1c2e770cf9856ad78db8def6bdddb168dc4de5a18763e4ab078174312984e0",
-            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_projected-malperfusion_rat2human_nested-2-2.zip",
+        "image@2025-06-07_20-24-33_projected-malperfusion_rat2human_nested-2-2": {
+            "sha256": "9d7376cb3d7ee9592a008df9fa4020014d5c9c8d7d094568684f84faa115a34d",
+            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_projected-malperfusion_rat2human_nested-2-2.zip",
         },
-        "image@2025-03-09_19-38-10_projected-malperfusion_rat2pig_nested-0-2": {
-            "sha256": "bf787201c9c4bf3ff9e037d6f4e4ba679a785e362a38ae1d4fc00b2b33de32ec",
-            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_projected-malperfusion_rat2pig_nested-0-2.zip",
+        "image@2025-06-07_20-24-33_projected-malperfusion_rat2pig_nested-0-2": {
+            "sha256": "60712fbac4980489380a7282096940131db7c0118b265107869eb9b01068369a",
+            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_projected-malperfusion_rat2pig_nested-0-2.zip",
         },
-        "image@2025-03-09_19-38-10_projected-malperfusion_rat2pig_nested-1-2": {
-            "sha256": "a836156030be7feff3c630d1700d992c373a24388b7e807107035cb9308734de",
-            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_projected-malperfusion_rat2pig_nested-1-2.zip",
+        "image@2025-06-07_20-24-33_projected-malperfusion_rat2pig_nested-1-2": {
+            "sha256": "0e0d288e6f61424a39628b26424ef0cd8e3a74bb19c1b86126f132e9bab866be",
+            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_projected-malperfusion_rat2pig_nested-1-2.zip",
         },
-        "image@2025-03-09_19-38-10_projected-malperfusion_rat2pig_nested-2-2": {
-            "sha256": "909c37ea0d8c92cb7672f5e02f03ddda9a2b457b5e01d61d37828ac772b5133a",
-            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-03-09_19-38-10_projected-malperfusion_rat2pig_nested-2-2.zip",
+        "image@2025-06-07_20-24-33_projected-malperfusion_rat2pig_nested-2-2": {
+            "sha256": "2bc9e1e84ef8614e3418c0147d0980463579f8416ce327c5f4f8cc0ebd1fbe0d",
+            "url": "https://e130-hyperspectal-tissue-classification.s3.dkfz.de/models/image@2025-06-07_20-24-33_projected-malperfusion_rat2pig_nested-2-2.zip",
         },
         # Models from our Science Advances 2025 paper (sepsis):
         "image@2025-03-07_13-00-00_sepsis-inclusion_finger_image_nested-0-4_seed-0-2": {
@@ -1838,7 +1838,7 @@ class HTCModel(nn.Module, metaclass=PostInitCaller):
 
         Retrieve a collection of models as list:
         >>> models = ModelImage.pretrained_model(
-        ...     model="image", run_folder="2025-03-09_19-38-10_baseline_rat_nested-*-2"
+        ...     model="image", run_folder="2025-06-07_20-24-33_baseline_rat_nested-*-2"
         ... )  # doctest: +ELLIPSIS
         [...]
         >>> len(models)
@@ -1846,7 +1846,7 @@ class HTCModel(nn.Module, metaclass=PostInitCaller):
 
         Args:
             model: Basic model type like image or pixel (first column in the pretrained models table). This corresponds to the folder name in the first hierarchy level of the training directory.
-            run_folder: Name of the training run from which the weights should be loaded, e.g. to select HSI or RGB models (fourth column in the pretrained models table). This corresponds to the folder name in the second hierarchy level of the training directory. If the run folder contains a wildcard `*` to indicate a collection of runs (e.g. "2025-03-09_19-38-10_baseline_rat_nested-*-2"), this function will return a list of models from this collection.
+            run_folder: Name of the training run from which the weights should be loaded, e.g. to select HSI or RGB models (fourth column in the pretrained models table). This corresponds to the folder name in the second hierarchy level of the training directory. If the run folder contains a wildcard `*` to indicate a collection of runs (e.g. "2025-06-07_20-24-33_baseline_rat_nested-*-2"), this function will return a list of models from this collection.
             path: Alternatively of specifying the model and run folder, you can also specify the path to the run directory, the fold directory or the path to the checkpoint file (*.ckpt) directly.
             fold_name: Name of the validation fold which defines the trained network of the run. If None, the model with the highest metric score will be used.
             n_classes: Number of classes for the network output. If None, uses the same setting as in the trained network (e.g. 18 organ classes + background for the organ segmentation networks).
@@ -1899,7 +1899,7 @@ class HTCModel(nn.Module, metaclass=PostInitCaller):
 
         Args:
             model_name: Basic model type like image or pixel.
-            run_folder: Name of the training run directory (e.g. 2022-02-03_22-58-44_generated_default_model_comparison). If the run folder contains a wildcard `*` to indicate a collection of runs (e.g. "2025-03-09_19-38-10_baseline_rat_nested-*-2"), this function will return all matching run directories.
+            run_folder: Name of the training run directory (e.g. 2022-02-03_22-58-44_generated_default_model_comparison). If the run folder contains a wildcard `*` to indicate a collection of runs (e.g. "2025-06-07_20-24-33_baseline_rat_nested-*-2"), this function will return all matching run directories.
             path: Alternatively to model_name and run_folder, you can also specify the path to the run directory (may also be relative to the results directory in one of the folders from above). If the path points to the fold directory or the checkpoint file (*.ckpt), the corresponding run directory will be returned.
 
         Returns: Path to the requested training run (run directory usually starting with a timestamp).

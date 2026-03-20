@@ -2,7 +2,6 @@
 # SPDX-License-Identifier: MIT
 
 import numpy as np
-import pytest
 import torch
 
 from htc.dataset_preparation.run_dataset_sepsis_icu import DatasetGeneratorSepsisICU
@@ -14,7 +13,7 @@ from htc_projects.camera.calibration.CalibrationSwap import CalibrationSwap, rec
 class TestDatasetGeneratorSepsisICU:
     output_path = settings.datasets.sepsis_ICU["path_dataset"]
 
-    def test_recalibration_match(self, caplog: pytest.LogCaptureFixture) -> None:
+    def test_recalibration_match(self) -> None:
         generator = DatasetGeneratorSepsisICU(output_path=self.output_path)
         t = CalibrationSwap()
 

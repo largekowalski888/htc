@@ -37,7 +37,8 @@ def test_swa_lr() -> None:
 def test_multi_label_condensation(caplog: LogCaptureFixture) -> None:
     config = Config({"label_mapping": {"network_unsure": 2}})
     confidences = (
-        torch.tensor([
+        torch
+        .tensor([
             [0.8, 0.2, 0.3],
             [0.6, 0.7, 0.1],
             [0.2, 0.1, 0.3],

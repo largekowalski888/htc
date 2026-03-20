@@ -69,7 +69,8 @@ def compute_metrics(
     # stack and aggregate the dataframes
     df = pd.concat(dfs)
     df = (
-        df.groupby(["image_name", "image_labels"], as_index=False)
+        df
+        .groupby(["image_name", "image_labels"], as_index=False)
         .agg(predictions=pd.NamedAgg(column="predictions", aggfunc=lambda x: np.mean(np.stack(x), axis=0)))
         .reset_index()
     )

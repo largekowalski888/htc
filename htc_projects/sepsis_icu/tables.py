@@ -46,9 +46,9 @@ def first_timepoint_filter(df: pd.DataFrame, **kwargs) -> pd.DataFrame:
             datetime.strptime(timestamp, settings.tivita_timestamp_format).date() for timestamp in df.timestamp.values
         ]
     if "label_name" in df.columns:
-        df = df.groupby(["subject_name", "label_name"], as_index=False).apply(lambda x: x[x["date"] == x.date.min()])
+        df = df.loc[df.groupby(["subject_name", "label_name"])["date"].idxmin()]
     else:
-        df = df.groupby(["subject_name"], as_index=False).apply(lambda x: x[x["date"] == x.date.min()])
+        df = df.loc[df.groupby(["subject_name"])["date"].idxmin()]
     df = df.reset_index(drop=True)
 
     return df

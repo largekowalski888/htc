@@ -347,8 +347,8 @@ class HTCDataset(ABC, Dataset):
         if self.config["input/n_channels"]:
             if not self.config["input/no_features"] and isinstance(sample["features"], torch.Tensor):
                 assert sample["features"].shape[-1] == self.config["input/n_channels"], (
-                    f'Number of feature channels ({sample["features"].shape = }) does not correspond to the number of'
-                    f' channels in the config {self.config["input/n_channels"] = }'
+                    f"Number of feature channels ({sample["features"].shape = }) does not correspond to the number of"
+                    f" channels in the config {self.config["input/n_channels"] = }"
                 )
             else:
                 assert "features" not in sample or type(sample["features"]) == int, "Either no features or pointers"

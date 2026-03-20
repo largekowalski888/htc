@@ -37,11 +37,11 @@ test-package:
     - docker compose -f dependencies/docker-compose.yml -f gitlab_runner/docker-compose.yml build
     - >
       docker compose -f dependencies/docker-compose.yml -f gitlab_runner/docker-compose.yml run --rm htc bash -c '
-      CIBW_BUILD="cp313-*"
+      CIBW_BUILD="cp314-*"
       CIBW_TEST_COMMAND=""
       cibuildwheel --platform linux --output-dir dist &&
       cd /home &&
-      conda create --yes --name htc_test python=3.13 &&
+      conda create --yes --name htc_test python=3.14 &&
       conda run --no-capture-output --name htc_test pip install -r /home/src/dependencies/requirements-tests.txt &&
       conda run --no-capture-output --name htc_test pip install /home/src/dist/* &&
       conda run --no-capture-output --name htc_test py.test --doctest-modules --import-mode=importlib --collect-only --pyargs "htc" "htc_projects"' || exit_code=$?
@@ -53,7 +53,7 @@ test-sdist:
     - docker compose -f dependencies/docker-compose.yml -f gitlab_runner/docker-compose.yml build
     - >
       docker compose -f dependencies/docker-compose.yml -f gitlab_runner/docker-compose.yml run --rm htc bash -c '
-      conda create --yes --name htc_test python=3.13 &&
+      conda create --yes --name htc_test python=3.14 &&
       conda run --no-capture-output --name htc_test pip install -r /home/src/dependencies/requirements-tests.txt &&
       conda run --no-capture-output --name htc_test pip install build torch &&
       conda run --no-capture-output --name htc_test python -m build . --sdist &&

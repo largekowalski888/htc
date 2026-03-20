@@ -402,13 +402,15 @@ model & \\# pixels & epoch size & batch size \\\\
         df_runs_best = pd.read_pickle(settings.results_dir / "challengeR/lrs/runs_best.pkl.xz")
 
         df_dice_fixed = (
-            df_runs_fixed.query('metric == "dice_metric_image"')
+            df_runs_fixed
+            .query('metric == "dice_metric_image"')
             .groupby("model_id", as_index=False)["metric_value"]
             .mean()
             .sort_values("model_id")
         )
         df_dice_best = (
-            df_runs_best.query('metric == "dice_metric_image"')
+            df_runs_best
+            .query('metric == "dice_metric_image"')
             .groupby("model_id", as_index=False)["metric_value"]
             .mean()
             .sort_values("model_id")

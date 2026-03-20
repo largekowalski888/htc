@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2022 Division of Intelligent Medical Systems, DKFZ
 # SPDX-License-Identifier: MIT
 
-# Example from the website: https://heiporspectral.org/
+# Example from the website: https://spectralverse-heidelberg.org/HeiPorSPECTRAL
 #
 import numpy as np
 
