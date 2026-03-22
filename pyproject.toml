@@ -18,7 +18,7 @@ linux.repair-wheel-command = """\
   auditwheel repair --exclude libtorch_cpu.so --exclude libtorch_python.so --exclude libtorch.so --exclude libc10.so \
   -w {dest_dir} {wheel}\
   """
-before-all = """
+before-all-linux = """
 # If host provided PIP_CACHE_DIR, rewrite it to the /host mount inside the container
 if [ -n "$PIP_CACHE_DIR" ]; then
   export PIP_CACHE_DIR="/host$PIP_CACHE_DIR"
