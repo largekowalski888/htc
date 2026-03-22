@@ -44,6 +44,8 @@ class TestPaperSemanticFiles:
     def test_files_match(
         self, path_test_files: Path, tmp_path: Path, script_runner: ScriptRunner, monkeypatch: MonkeyPatch
     ) -> None:
+        pytest.skip("This test is currently disabled because it is flaky (probably due to some issue in Jupyter)")
+
         # This test generates all paper figures and the variable file based on the trained networks
         # This includes all the intermediate result files (e.g. challengeR runs)
 
