@@ -1,4 +1,4 @@
-name: HeiPorSPECTRAL dataset example
+name: Public dataset examples
 
 on:
   workflow_dispatch:
