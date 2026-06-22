@@ -15,62 +15,21 @@ def find_primary_spectrum_file(hypergui_dir: Path) -> Path | None:
     return candidates[0] if candidates else None
 
 
-def expand_parent_roots(parent_roots: list[str | Path], data_subdir: str = 'data', recursive: bool = False) -> list[Path]:
-    """
-    Discover class folders under one or more parent roots.
-
-    A class folder is any directory that contains a child folder named `data_subdir`.
-    The class label will be taken from the class folder name, not the `data` folder name.
-    """
-    class_roots: list[Path] = []
-
-    for parent_raw in parent_roots:
-        parent = Path(parent_raw)
-        if not parent.exists():
-            raise FileNotFoundError(f'Parent root does not exist: {parent}')
-
-        if recursive:
-            candidates = [p for p in parent.rglob('*') if p.is_dir()]
-        else:
-            candidates = [p for p in parent.iterdir() if p.is_dir()]
-
-        for candidate in candidates:
-            if (candidate / data_subdir).is_dir():
-                class_roots.append(candidate)
-
-    # Deduplicate while preserving order
-    seen = set()
-    unique_roots = []
-    for p in class_roots:
-        if str(p) not in seen:
-            seen.add(str(p))
-            unique_roots.append(p)
-    return unique_roots
-
-
-def scan_class_roots(class_roots: list[str | Path], output_csv: str | Path, recurse_token: str = '_hypergui_1', data_subdir: str = '') -> pd.DataFrame:
+def scan_class_roots(class_roots: list[str | Path], output_csv: str | Path, recurse_token: str = '_hypergui_1') -> pd.DataFrame:
     rows = []
-
     for root_raw in class_roots:
         root = Path(root_raw)
         if not root.exists():
             raise FileNotFoundError(f'Class root does not exist: {root}')
-
         class_name = root.name
-        scan_root = root / data_subdir if data_subdir else root
-        if not scan_root.exists():
-            raise FileNotFoundError(f'Scan root does not exist: {scan_root}')
-
-        for hypergui_dir in scan_root.rglob(recurse_token):
+        for hypergui_dir in root.rglob(recurse_token):
             if not hypergui_dir.is_dir():
                 continue
-
             sample_dir = hypergui_dir.parent
             spectrum_path = find_primary_spectrum_file(hypergui_dir)
             mask_path = hypergui_dir / 'mask.csv'
             if spectrum_path is None:
                 continue
-
             subject_name, timestamp = parse_subject_and_timestamp(sample_dir)
             rows.append({
                 'class_name': class_name,
