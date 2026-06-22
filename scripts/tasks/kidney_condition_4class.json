@@ -1,0 +1,43 @@
+{
+  "task_name": "kidney_condition_4class",
+  "output_dir": "C:/DKFZ/outputs/task_runs/kidney_condition_4class",
+  "label_space": {
+    "source": "explicit_labels",
+    "labels": [
+      "baseline",
+      "deox",
+      "ischem",
+      "stas"
+    ]
+  },
+  "training_source": {
+    "adapter": "custom_table",
+    "path": "C:/PATH/TO/YOUR/kidney_condition_training_table.csv",
+    "feature": {
+      "column": "feature_vector",
+      "normalize": true
+    },
+    "label": {
+      "column": "condition"
+    }
+  },
+  "inference_source": {
+    "adapter": "cat_manifest",
+    "path": "C:/DKFZ/htc/scripts/cat_manifest.csv",
+    "feature": {
+      "sheet": "0_derivative",
+      "normalize": true
+    },
+    "truth": {
+      "type": "column",
+      "column": "condition"
+    },
+    "aggregate_by": "subject_name"
+  },
+  "model": {
+    "type": "random_forest",
+    "n_estimators": 300,
+    "max_depth": null,
+    "random_state": 42
+  }
+}

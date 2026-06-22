@@ -1,0 +1,42 @@
+{
+  "task_name": "kidney_vs_rest",
+  "output_dir": "C:/DKFZ/outputs/task_runs/kidney_vs_rest",
+  "label_space": {
+    "source": "explicit_labels",
+    "labels": [
+      "not_kidney",
+      "kidney"
+    ]
+  },
+  "training_source": {
+    "adapter": "heipor_table",
+    "path": "C:/DKFZ/HeiPorSPECTRAL_example/intermediates/tables/HeiPorSPECTRAL@median_spectra@polygon#annotator1.csv",
+    "feature": {
+      "column": "median_normalized_spectrum",
+      "normalize": false
+    },
+    "label": {
+      "column": "label_name",
+      "transform": "kidney_vs_rest"
+    }
+  },
+  "inference_source": {
+    "adapter": "cat_manifest",
+    "path": "C:/DKFZ/htc/scripts/cat_manifest.csv",
+    "feature": {
+      "sheet": "0_derivative",
+      "normalize": true
+    },
+    "truth": {
+      "type": "constant",
+      "value": "kidney"
+    },
+    "aggregate_by": "subject_name"
+  },
+  "model": {
+    "type": "random_forest",
+    "n_estimators": 300,
+    "max_depth": null,
+    "random_state": 42
+  }
+}

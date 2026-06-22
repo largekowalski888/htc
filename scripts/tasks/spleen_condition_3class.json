@@ -1,0 +1,42 @@
+{
+  "task_name": "spleen_condition_3class",
+  "output_dir": "C:/DKFZ/outputs/task_runs/spleen_condition_3class",
+  "label_space": {
+    "source": "explicit_labels",
+    "labels": [
+      "baseline",
+      "ischem",
+      "diseased"
+    ]
+  },
+  "training_source": {
+    "adapter": "custom_table",
+    "path": "C:/PATH/TO/YOUR/spleen_condition_training_table.csv",
+    "feature": {
+      "column": "feature_vector",
+      "normalize": true
+    },
+    "label": {
+      "column": "condition"
+    }
+  },
+  "inference_source": {
+    "adapter": "custom_table",
+    "path": "C:/PATH/TO/YOUR/spleen_inference_table.csv",
+    "feature": {
+      "sheet": "0_derivative",
+      "normalize": true
+    },
+    "truth": {
+      "type": "column",
+      "column": "condition"
+    },
+    "aggregate_by": "subject_name"
+  },
+  "model": {
+    "type": "random_forest",
+    "n_estimators": 300,
+    "max_depth": null,
+    "random_state": 42
+  }
+}
